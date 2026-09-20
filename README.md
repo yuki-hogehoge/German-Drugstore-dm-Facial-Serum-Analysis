@@ -1,5 +1,5 @@
 # 🧪 German Drugstore (dm) Facial Serum Analysis
-> **Scraping, Cleaning, and Analyzing 197 Facial Serums from dm-drogerie markt: Price, Customer Ratings, and Active Ingredient Matrix**
+> **Scraping, Cleaning, and Analyzing 179 Facial Serums from dm-drogerie markt: Price, Customer Ratings, and Active Ingredient Matrix**
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -11,7 +11,7 @@ This repository contains an end-to-end data analysis project focusing on facial 
 ## 📌 Project Overview
 
 * **Goal**: Evaluate market structure, price-to-performance ratio, and active ingredient trends across private label (PL) brands (e.g., *Balea*) and national brands (NB) (e.g., *L'Oréal Paris*, *NIVEA*, *Garnier*).
-* **Dataset**: 197 facial serum products scraped from `dm.de` (focused analysis on top-reviewed SKUs).
+* **Dataset**: 179 facial serum products scraped from `dm.de` (focused analysis on top-reviewed SKUs).
 * **Key Methodologies**:
   * **Web Scraping & Cleaning**: Data extraction, price standardization per 100ml (€), and character encoding handling (`utf-8-sig`).
   * **Feature Engineering**: Rule-based boolean flagging for skin concerns (`anti-aging`, `dark_spots`, `dry`, `sensitive`, etc.) and active ingredient normalization.
