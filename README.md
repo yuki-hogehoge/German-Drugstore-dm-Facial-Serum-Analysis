@@ -64,12 +64,13 @@ This repository contains an end-to-end data analysis project focusing on facial 
 
 ```text
 dm-skincare-serum-analysis/
-├── README.md                           # Project documentation (this file)
+├── README.md                                # Project documentation (this file)
 ├── data/
-│   ├── dm_serum_raw_197.csv            # Raw scraped data
-│   └── dm_serum_top30_working.csv      # Cleaned and feature-engineered dataset
+│   ├── dm_serum_2026-08-07.csv              # Raw scraped data
+│   ├── dm_serum_top30_working.csv           # Extract the top 30
+│   └── skincare_dataset_dm_serum_top30.csv  # Cleaned and feature-engineered dataset
 ├── notebooks/
-│   └── dm_serum_analysis.ipynb         # Main Jupyter Notebook (EDA & Plotting)
+│   └── dm_serum_analysis.ipynb              # Main Jupyter Notebook (EDA & Plotting)
 └── images/
-    ├── dm_serum_scatter_plot.png       # Generated scatter plot
-    └── dm_serum_boxplot.png            # Generated box plot
+    ├── dm_serum_scatter_plot.png            # Generated scatter plot
+    └── dm_serum_boxplot.png                 # Generated box plot
