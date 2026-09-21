@@ -66,7 +66,6 @@ This repository contains an end-to-end data analysis project focusing on facial 
 dm-skincare-serum-analysis/
 ├── README.md                                # Project documentation (this file)
 ├── data/
-│   ├── dm_serum_2026-08-07.csv              # Raw scraped data
 │   ├── dm_serum_top30_working.csv           # Extract the top 30
 │   └── skincare_dataset_dm_serum_top30.csv  # Cleaned and feature-engineered dataset
 ├── notebooks/
