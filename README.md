@@ -1,33 +1,49 @@
 # 🧪 German Drugstore (dm) Facial Serum Analysis
-> **Scraping, Cleaning, and Analyzing 179 Facial Serums from dm-drogerie markt: Price, Customer Ratings, and Active Ingredient Matrix**
+> **Scraping, Cleaning, and Analyzing Facial Serums from dm-drogerie markt: Price, Customer Ratings, and Active Ingredient Matrix**
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Zenn](https://img.shields.io/badge/Article-Zenn-blue)](https://zenn.dev/yuki_hogehoge/articles/YOUR_ARTICLE_SLUG) <!-- 👈 ご自身のZenn記事URLに変更してください -->
 
 This repository contains an end-to-end data analysis project focusing on facial serums from Germany's leading drugstore chain, **dm (dm-drogerie markt)**. The workflow covers web scraping, missing value imputation, domain-specific text parsing (extracting skin concerns and active ingredients), and exploratory data analysis (EDA).
+
+📖 **Detailed Analysis Article (Japanese)**: [Zennの記事を読む](https://zenn.dev/yuki_hogehoge/articles/98cff955fbba69)
 
 ---
 
 ## 📌 Project Overview
 
 * **Goal**: Evaluate market structure, price-to-performance ratio, and active ingredient trends across private label (PL) brands (e.g., *Balea*) and national brands (NB) (e.g., *L'Oréal Paris*, *NIVEA*, *Garnier*).
-* **Dataset**: 179 facial serum products scraped from `dm.de` (focused analysis on top-reviewed SKUs).
+* **Dataset & Sampling**:
+  * **Raw Dataset**: 179 facial serum products collected from `dm.de` (Data collected: August 2026).
+  * **Focused Analysis Sample ($N=30$)**: To filter out noisy long-tail SKUs with negligible ratings, EDA was conducted on the **top 30 products sorted by review count**.
 * **Key Methodologies**:
-  * **Web Scraping & Cleaning**: Data extraction, price standardization per 100ml (€), and character encoding handling (`utf-8-sig`).
-  * **Feature Engineering**: Rule-based boolean flagging for skin concerns (`anti-aging`, `dark_spots`, `dry`, `sensitive`, etc.) and active ingredient normalization.
-  * **Data Visualization**: Correlation analysis, scatter plots, and box plots comparing brand types and ingredient matrices.
+  * **Data Compliance & Cleaning**: Adhered to site rules (`robots.txt`), sanitized raw inputs, and calculated normalized prices per 100ml (€).
+  * **Feature Engineering**: Rule-based boolean flagging for skin concerns (`anti-aging`, `dark_spots`, `dry`, `sensitive`, etc.) using German keywords and active ingredient normalization.
+  * **Exploratory Data Analysis (EDA)**: Correlation analysis, scatter plots, and box plots comparing brand types and ingredient matrices.
 
 ---
 
-## 📊 Key Findings
+## 🛡️ Data Governance & Compliance
 
-1. **Private Label (PL) vs. National Brand (NB) Polarizing**:
-   * **Private Labels (*Balea*, *alverde*)**: Strongly compressed in the ultra-low price range (€10–€20 / 100ml), offering high affordability. However, customer ratings cluster moderately around an average median of **4.1 Stars**.
-   * **National Brands (*L'Oréal*, *NIVEA*)**: Span a wider price spectrum (€50–€100+ / 100ml) with higher customer satisfaction, securing a **4.6 Stars** median rating.
-2. **Top-Rated Segment Dominance**:
-   * Out of products rated ★4.6 or higher, **Private Labels represent only 6.7%**, demonstrating strong consumer trust toward established National Brands for high-performance skincare.
-3. **Core Skin Concern Drivers**:
-   * **70% of the dataset** targets **Anti-Aging / Wrinkle Reduction**, making it the highest-priced and most saturated market segment, followed by **Dark Spots / Brightening** (Niacinamide, Vitamin C, Retinol).
+To respect database rights, intellectual property, and site terms of service:
+* **No Raw Text Distribution**: The unedited scraped dataset containing long-form German product descriptions is excluded from this public repository.
+* **Published Dataset**: Only processed product IDs, calculated price metrics, and engineered feature flags (`skincare_dataset_dm_serum_top30.csv`) are made publicly available.
+* **Crawl Politeness**: Data retrieval was executed with minimum 2-second delays between requests, avoiding prohibited paths as specified in `dm.de`'s `robots.txt`.
+
+---
+
+## 📊 Key Findings & Methodological Limitations
+
+> ⚠️ **Note on Sample Size ($N=30$)**: The findings below are based on a small sample of the 30 most-reviewed products, introducing selection bias toward popular SKUs. These observations should be interpreted as **hypotheses and preliminary insights** rather than definitive market-wide conclusions.
+
+1. **Private Label (PL) vs. National Brand (NB) Price Structure**:
+   * **Private Labels (*Balea*, *alverde*)**: Strongly compressed in the ultra-low price range (€10–€20 / 100ml), prioritizing affordability. Customer ratings in this top-30 sample centered around a median of **4.1 Stars**.
+   * **National Brands (*L'Oréal*, *NIVEA*)**: Span a broader price spectrum with a higher rating median of **4.6 Stars**, suggesting potential differences in consumer expectations or target formulation efficacy.
+2. **High-Rating Segment Tendencies**:
+   * Among products rated ★4.6 or higher in the sample, National Brands accounted for the vast majority, hinting at strong consumer satisfaction with established brands in high-performance skincare.
+3. **Core Skin Concern Focus**:
+   * Keyword detection indicated that approximately **70% of the sample** targets **Anti-Aging / Wrinkle Reduction**, marking it as a highly competitive segment alongside **Dark Spots / Brightening** (Niacinamide, Vitamin C, Retinol).
 
 ---
 
@@ -39,14 +55,6 @@ This repository contains an end-to-end data analysis project focusing on facial 
 ### 2. Brand Category Distribution & Rating Comparison (Box Plot)
 ![PB vs NB Boxplot](images/dm_serum_boxplot.png)
 
-### 3. Active Ingredient & Concern Matrix (Sample)
-
-| Brand | Product | Price / 100ml | Rating | Niacinamide | Vitamin C | Retinol | Hyaluron | Primary Concern |
-| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
-| **L'Oréal Paris** | Age Perfect Le Duo | €83.17 | 4.7 | ✅ | ✅ | ❌ | ❌ | Anti-Aging / Dark Spots |
-| **Balea** | Niacinamide Serum | €15.00 | 4.2 | ✅ | ❌ | ❌ | ❌ | Acne / Blemishes |
-| **Garnier** | Vitamin C Serum | €35.00 | 4.5 | ✅ | ✅ | ❌ | ❌ | Dark Spots |
-
 ---
 
 ## 🛠 Tech Stack
@@ -56,7 +64,7 @@ This repository contains an end-to-end data analysis project focusing on facial 
 * **Libraries**:
   * **Data Wrangling**: `pandas`, `numpy`
   * **Visualization**: `matplotlib`, `seaborn`
-  * **Text Processing & Parsing**: `re` (Regular Expressions), `BeautifulSoup4`
+  * **Text Processing & Parsing**: `re` (Regular Expressions)
 
 ---
 
@@ -66,8 +74,7 @@ This repository contains an end-to-end data analysis project focusing on facial 
 dm-skincare-serum-analysis/
 ├── README.md                                # Project documentation (this file)
 ├── data/
-│   ├── dm_serum_top30_working.csv           # Extract the top 30
-│   └── skincare_dataset_dm_serum_top30.csv  # Cleaned and feature-engineered dataset
+│   └── skincare_dataset_dm_serum_top30.csv  # Feature-engineered dataset (N=30, raw texts omitted for compliance)
 ├── notebooks/
 │   └── dm_serum_analysis.ipynb              # Main Jupyter Notebook (EDA & Plotting)
 └── images/
