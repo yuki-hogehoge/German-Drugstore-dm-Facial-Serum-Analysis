@@ -3,7 +3,7 @@
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Zenn](https://img.shields.io/badge/Article-Zenn-blue)](https://zenn.dev/yuki_hogehoge/articles/YOUR_ARTICLE_SLUG) <!-- 👈 ご自身のZenn記事URLに変更してください -->
+[![Zenn](https://img.shields.io/badge/Article-Zenn-blue)](https://zenn.dev/yuki_hogehoge/articles/98cff955fbba69) 
 
 This repository contains an end-to-end data analysis project focusing on facial serums from Germany's leading drugstore chain, **dm (dm-drogerie markt)**. The workflow covers web scraping, missing value imputation, domain-specific text parsing (extracting skin concerns and active ingredients), and exploratory data analysis (EDA).
 
