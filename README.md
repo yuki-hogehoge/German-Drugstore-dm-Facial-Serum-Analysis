@@ -5,6 +5,15 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Zenn](https://img.shields.io/badge/Article-Zenn-blue)](https://zenn.dev/yuki_hogehoge/articles/98cff955fbba69) 
 
+> **Note: This is the initial pilot analysis (30 hand-annotated products).**
+> The data collection was later automated and expanded to the full category (172 products).
+> See the related repositories below for the full pipeline and follow-up analyses.
+>
+> - 🔧 [dm-skincare-data-pipeline](https://github.com/yuki-hogehoge/dm-skincare-data-pipeline) — automated data collection covering all 172 products in the category
+> - 📊 [dm-skincare-analysis](https://github.com/yuki-hogehoge/dm-skincare-analysis) — statistical analysis built on the full 172-product dataset (ingredient placement vs. price, fragrance/alcohol vs. rating, private-label comparison, etc.)
+>
+> This repository is kept for reference as the starting point of the project and is no longer actively updated.
+
 This repository contains an end-to-end data analysis project focusing on facial serums from Germany's leading drugstore chain, **dm (dm-drogerie markt)**. The workflow covers web scraping, missing value imputation, domain-specific text parsing (extracting skin concerns and active ingredients), and exploratory data analysis (EDA).
 
 📖 **Detailed Analysis Article (Japanese)**: [Zennの記事を読む](https://zenn.dev/yuki_hogehoge/articles/98cff955fbba69)
